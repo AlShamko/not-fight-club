@@ -13,6 +13,10 @@ a {
     text-decoration: none;
 }
 
+li {
+    list-style: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -68,15 +72,92 @@ main {
     pointer-events: auto;
 }
 
+/* start style ScreenFirst */
+
 .screenOneImg {
     max-width: 300px;
     max-height: 400px;
     margin-bottom: 25px;
+    border-radius: 20px;
 }
 
-.screenTwoImg img{
-    width: 100%;
+/* start style ScreenSecond */
+
+
+.inputField {
+    margin: 25px 0;
+    padding: 12px 16px;
+    font-size: 18px;
+    font-family: 'Press Start 2P', cursive;
+
+    background: transparent;
+    border: 2px solid crimson;
+    border-radius: 8px;
+
+    color: white;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+.inputField:focus {
+    border-color: red;
+    box-shadow: 0 0 10px red;
+}
+
+
+/* start style ScreenThird */
+.screenTwo__title {
+    margin: 15px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.item {
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    transition: .3s;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.item:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.item.selected {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    width: 450px;
+    height: 450px;
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+
+.item.dimmed {
+    opacity: 0.2;
+    filter: blur(3px);
+    transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+
+/* start style ScreenFour */
+
+
 
 .button {
     margin-top: 20px;
@@ -92,6 +173,11 @@ main {
 
 .button:hover {
     color: red;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    color: #7e7a7a;
 }
 
 /* footer style */

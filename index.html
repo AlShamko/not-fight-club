@@ -16,31 +16,42 @@
 
 <main>
 
-    <section class="screen active" id="screenOne">
+    <section class="screen screenFirst active" id="screenOne">
         <img class="screenOneImg" src="./src/assets/img/imageStart.jpg" alt="Fight">
         <h1>Fight Club</h1>
         <button class="button nextBtn buttonScreenOne">Start Game</button>
     </section>
 
-
-    <section class="screen" id="screenTwo">
-        <h2 class="screenTwo__title">Choose a player</h2>
-        <p>Здесь можно описать правила...</p>
-        <button class="button nextBtn">Далее</button>
+    <section class="screen screenSecond" id="screenTwo">
+        <h2>Enter player name</h2>
+        <input type="text" id="playerNameInput" placeholder="nickname" class="inputField">
+        <button class="button nextBtn">Next</button>
     </section>
 
 
-    <section class="screen" id="screenThree">
-        <h2>Выбор персонажа</h2>
-        <p>Тут будет выбор бойца...</p>
-        <button class="button nextBtn">Далее</button>
+    <section class="screen screenThird" id="screenThree">
+        <h2 class="screenTwo__title">Choose a player</h2>
+        <div class="screenSecondContent">
+            <div class="wrapper__second">
+                <ul class="grid">
+                    <li class="item"><a href=""><img src="./src/assets/img/player1.jpg" alt="player1"></a></li>
+                    <li class="item"><a href=""><img src="./src/assets/img/player2.jpg" alt="player2"></a></li>
+                    <li class="item"><a href=""><img src="./src/assets/img/player3.jpg" alt="player3"></a></li>
+                    <li class="item"><a href=""><img src="./src/assets/img/player4.jpg" alt="player4"></a></li>
+                </ul>
+            </div>
+        </div>
+        <button class="button nextBtn">Next</button>
     </section>
 
 
     <section class="screen" id="screenFour">
-        <h2>Начало боя</h2>
-        <p>Описание боя...</p>
-        <button class="button nextBtn">Далее</button>
+        <h2>Fight</h2>
+        <div class="wrapperFight">
+            <div class="playerOne"></div>
+            <div class="playerTwo"></div>
+        </div>
+        <button class="button nextBtn">Next</button>
     </section>
 
 
