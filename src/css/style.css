@@ -156,6 +156,35 @@ main {
 
 
 /* start style ScreenFour */
+.wrapperFight {
+    width: 50vw;
+    height: 50vh;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.avatar img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.buttonFight {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #111;
+    border: none;
+    color: white;
+    font-size: 25px;
+    font-family: 'Press Start 2P';
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttonFight:hover {
+    color: red;
+}
 
 
 

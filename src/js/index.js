@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const screens = document.querySelectorAll(".screen");
-    const nextBtn = document.querySelectorAll(".nextBtn");
+    const nextBtns = document.querySelectorAll(".nextBtn");
     const restartBtn = document.querySelector(".restartBtn");
     const headerTitle = document.querySelector(".header__title");
     const playerNameInput = document.getElementById("playerNameInput");
@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let current = 0;
     let playerName = "";
-    let selectedPlayer = null;
+    let selectedPlayer = null;     // alt выбранного игрока
+    let selectedPlayerImg = "";    // путь к картинке выбранного игрока
 
     function showScreen(index) {
         screens.forEach((s, i) => {
@@ -22,8 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             headerTitle.classList.remove("visible");
         }
+
+        // когда показываем экран боя — вставляем имя и аватар
+        if (index === 3) {
+            const fightName = document.getElementById("playerName");
+            const fightAvatar = document.querySelector(".avatar__player");
+
+            if (fightName) fightName.textContent = playerName || "Player";
+            if (fightAvatar && selectedPlayerImg) {
+                fightAvatar.innerHTML = `<img src="${selectedPlayerImg}" alt="${selectedPlayer}">`;
+            }
+        }
     }
 
+    // Проверка input для разблокировки кнопки
     if (playerNameInput) {
         const btn = screens[1].querySelector(".nextBtn");
         btn.disabled = true;
@@ -33,12 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    nextBtn.forEach(btn => {
+    nextBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             if (current === 1) {
                 const value = playerNameInput.value.trim();
                 if (!value) {
-                    alert("Your Name!!!!");
+                    alert("Пожалуйста, введите имя!");
                     return;
                 }
                 playerName = value;
@@ -59,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             current = 0;
             playerName = "";
             selectedPlayer = null;
+            selectedPlayerImg = "";
             playerNameInput.value = "";
             screens[1].querySelector(".nextBtn").disabled = true;
 
@@ -66,14 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 playerNameHeader.textContent = "";
             }
 
-
             items.forEach(i => i.classList.remove("selected", "dimmed"));
 
             showScreen(current);
         });
     }
 
-    // choose players
+    // выбор игрока
     if (items.length) {
         const nextBtnOnPlayer = screens[2].querySelector(".nextBtn");
         nextBtnOnPlayer.disabled = true;
@@ -82,22 +95,26 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("click", (e) => {
                 e.preventDefault();
 
-
+                // если нажали на уже выбранного — снимаем выбор
                 if (item.classList.contains("selected")) {
                     item.classList.remove("selected");
                     items.forEach(i => i.classList.remove("dimmed"));
                     selectedPlayer = null;
+                    selectedPlayerImg = "";
                     nextBtnOnPlayer.disabled = true;
                     return;
                 }
 
+                // снимаем выделение со всех
                 items.forEach(i => i.classList.remove("selected", "dimmed"));
 
-
+                // выделяем нового
                 item.classList.add("selected");
-                selectedPlayer = item.querySelector("img").alt;
+                const img = item.querySelector("img");
+                selectedPlayer = img.alt;
+                selectedPlayerImg = img.getAttribute("src");
 
-
+                // остальные затемняем
                 items.forEach(i => {
                     if (i !== item) i.classList.add("dimmed");
                 });

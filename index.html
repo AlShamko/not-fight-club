@@ -46,11 +46,27 @@
 
 
     <section class="screen" id="screenFour">
-        <h2>Fight</h2>
         <div class="wrapperFight">
-            <div class="playerOne"></div>
-            <div class="playerTwo"></div>
+            <div class="playerOne">
+                <h4 class="player__title" id="playerName"></h4>
+                <div class="wrapper__player">
+                    <div class="avatar__player avatar"></div>
+                    <div class="health"></div>
+                    <div class="fight__settings">
+                        <div class="attack"></div>
+                        <div class="defence "></div>
+                    </div>
+                </div>
+            </div>
+            <div class="playerTwo">
+                <h4 class="player__title">Arnold</h4>
+                <div class="wrapper__player">
+                    <div class="avatar"><img src="./src/assets/img/Arnold.jpg" alt="Arnold"></div>
+                    <div class="health"></div>
+                </div>
+            </div>
         </div>
+        <button class="buttonFight">Fight</button>
         <button class="button nextBtn">Next</button>
     </section>
 
