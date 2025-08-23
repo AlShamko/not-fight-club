@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let current = 0;
     let playerName = "";
-    let selectedPlayer = null;     // alt выбранного игрока
-    let selectedPlayerImg = "";    // путь к картинке выбранного игрока
+    let selectedPlayer = null;
+    let selectedPlayerImg = "";
 
     function showScreen(index) {
         screens.forEach((s, i) => {
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
             headerTitle.classList.remove("visible");
         }
 
-        // когда показываем экран боя — вставляем имя и аватар
         if (index === 3) {
             const fightName = document.getElementById("playerName");
             const fightAvatar = document.querySelector(".avatar__player");
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Проверка input для разблокировки кнопки
     if (playerNameInput) {
         const btn = screens[1].querySelector(".nextBtn");
         btn.disabled = true;
@@ -86,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // выбор игрока
     if (items.length) {
         const nextBtnOnPlayer = screens[2].querySelector(".nextBtn");
         nextBtnOnPlayer.disabled = true;
@@ -95,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("click", (e) => {
                 e.preventDefault();
 
-                // если нажали на уже выбранного — снимаем выбор
                 if (item.classList.contains("selected")) {
                     item.classList.remove("selected");
                     items.forEach(i => i.classList.remove("dimmed"));
@@ -105,16 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // снимаем выделение со всех
                 items.forEach(i => i.classList.remove("selected", "dimmed"));
 
-                // выделяем нового
                 item.classList.add("selected");
                 const img = item.querySelector("img");
                 selectedPlayer = img.alt;
                 selectedPlayerImg = img.getAttribute("src");
 
-                // остальные затемняем
                 items.forEach(i => {
                     if (i !== item) i.classList.add("dimmed");
                 });
