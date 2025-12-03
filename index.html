@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Fight Club</title>
+</head>
+<body>
+<header>
+    <h2 class="header__title">Fight Club</h2>
+</header>
+
+<main>
+
+    <section class="screen screenFirst active" id="screenOne">
+        <img class="screenOneImg" src="./src/assets/img/imageStart.jpg" alt="Fight">
+        <h1>Fight Club</h1>
+        <button class="button nextBtn buttonScreenOne">Start Game</button>
+    </section>
+
+    <section class="screen screenSecond" id="screenTwo">
+        <h2>Enter player name</h2>
+        <input type="text" id="playerNameInput" placeholder="nickname" class="inputField">
+        <button class="button nextBtn">Next</button>
+    </section>
+
+
+    <section class="screen screenThird" id="screenThree">
+        <h2 class="screenTwo__title">Choose a player</h2>
+        <div class="screenSecondContent">
+            <div class="wrapper__second">
+                <ul class="grid">
+                    <li class="item"><a href=""><img src="./src/assets/img/player1.jpg" alt="player1"></a></li>
+                    <li class="item"><a href=""><img src="./src/assets/img/player2.jpg" alt="player2"></a></li>
+                    <li class="item"><a href=""><img src="./src/assets/img/player3.jpg" alt="player3"></a></li>
+                    <li class="item"><a href=""><img src="./src/assets/img/player4.jpg" alt="player4"></a></li>
+                </ul>
+            </div>
+        </div>
+        <button class="button nextBtn">Next</button>
+    </section>
+
+
+    <section class="screen" id="screenFour">
+        <div class="wrapperFight">
+            <div class="playerOne">
+                <h4 class="player__title" id="playerName"></h4>
+                <div class="wrapper__player">
+                    <div class="avatar__player avatar"></div>
+                    <div class="health"></div>
+                    <div class="fight__settings">
+                        <div class="attack"></div>
+                        <div class="defence "></div>
+                    </div>
+                </div>
+            </div>
+            <div class="playerTwo">
+                <h4 class="player__title">Arnold</h4>
+                <div class="wrapper__player">
+                    <div class="avatar"><img src="./src/assets/img/Arnold.jpg" alt="Arnold"></div>
+                    <div class="health"></div>
+                </div>
+            </div>
+        </div>
+        <button class="buttonFight">Fight</button>
+        <button class="button nextBtn">Next</button>
+    </section>
+
+
+    <section class="screen" id="screenFive">
+        <h2>Results</h2>
+        <button class="button nextBtn">Next</button>
+    </section>
+
+
+    <section class="screen" id="screenSix">
+        <h2>Game end</h2>
+        <button class="button restartBtn">Play again</button>
+    </section>
+</main>
+
+<footer>
+    <h3>2025</h3>
+</footer>
+
+<script src="./src/js/index.js"></script>
+</body>
+</html>
